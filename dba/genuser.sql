@@ -1,0 +1,15 @@
+-- Role: genuser
+-- DROP ROLE genuser;
+
+CREATE ROLE genuser WITH
+  LOGIN
+  NOSUPERUSER
+  INHERIT
+  NOCREATEDB
+  NOCREATEROLE
+  NOREPLICATION
+  ENCRYPTED PASSWORD 'md5739b7fbf12c43eaa0e2300e06a555099';
+
+GRANT generic_role TO genuser;
+
+COMMENT ON ROLE genuser IS 'Generic User';

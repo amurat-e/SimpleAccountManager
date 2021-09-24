@@ -1,0 +1,9 @@
+# Account veri tabanına satır bazlı yükleme yapar
+	# kolonlar | ile ayrılır
+	# NULL belirtilen kolonlar tablolarda da [null] gözükür
+#
+#HESAP ADI|TİP|KULLANICI|URL|E-POSTA|ACIKLAMA|SIFRE
+#
+aaa|1|UserName|NULL|NULL|Hostname|1a2w3e4r!
+bbb|2|UserName|http://wwww|NULL|URL|1q2s3d+
+ccc|3|NULL|NULL|e_posta@com|e-mail|1z2x3c%
