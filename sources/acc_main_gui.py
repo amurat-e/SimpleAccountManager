@@ -28,6 +28,8 @@ class MainW:
 
         self.strowss=list()
         self.helpicon = global_.vars().helpicon
+        self.fontn = global_.vars().fontd.get('fAndale')
+        self.fonts = global_.vars().fontd.get('fs13')
         
         self.master.rowconfigure(0, weight=0)
         self.master.rowconfigure(1, weight=0)
@@ -63,8 +65,12 @@ class MainW:
         self.entry1.focus()
     
     def MW_tree(self):
+        style = ttk.Style()
+        style.configure("mystyle.Treeview", highlightthickness=0, bd=0, font=(self.fontn, self.fonts)) # Modify the font of the body
+        style.configure("mystyle.Treeview.Heading", font=(self.fontn, self.fonts,'bold')) # Modify the font of the headings
+        style.layout("mystyle.Treeview", [('mystyle.Treeview.treearea', {'sticky': 'nswe'})]) # Remove the borders
         columns = ("#1","#2","#3","#4","#5","#6","#7")
-        self.tree = ttk.Treeview(self.master, columns=columns, show='headings',selectmode='browse')
+        self.tree = ttk.Treeview(self.master, columns=columns, show='headings',selectmode='browse',style="mystyle.Treeview")
         self.tree.column("#1",anchor=tk.E,width=30)
         self.tree.heading("#1",text="ID")
         self.tree.column("#2",anchor=tk.W,width=150)

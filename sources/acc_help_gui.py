@@ -19,6 +19,8 @@ class HelpW:
 
         gl = global_.vars()
         self.helpfile = gl.helpfile
+        self.fontn = gl.fontd.get('fAndale')
+        self.fonts = gl.fontd.get('fs14')
         
         self.HW_labels()
         self.HW_text()
@@ -32,7 +34,7 @@ class HelpW:
  
     def HW_text(self):
 
-        txtfont = tkFont.Font(family='Andale Mono', size=14)
+        txtfont = tkFont.Font(family=self.fontn, size=self.fonts)
         vscrol = tk.Scrollbar(self.master)
         hscrol = tk.Scrollbar(self.master, orient=HORIZONTAL)
 
