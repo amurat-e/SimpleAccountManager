@@ -28,7 +28,7 @@ class MainW:
 
         self.strowss=list()
         self.helpicon = global_.vars().helpicon
-        self.fontn = global_.vars().fontd.get('fAndale')
+        self.fontn = global_.vars().fontd.get('fCArchivo')
         self.fonts = global_.vars().fontd.get('fs13')
         
         self.master.rowconfigure(0, weight=0)
@@ -81,18 +81,22 @@ class MainW:
         self.tree.heading("#4",text="URL")
         self.tree.column("#5",anchor=tk.W,width=150)
         self.tree.heading("#5",text="E-MAIL")
-        self.tree.column("#6",anchor=tk.W,width=150)
+        self.tree.column("#6",anchor=tk.W,width=200)
         self.tree.heading("#6",text="NOTE")
-        self.tree.column("#7",anchor=tk.W,width=100)
+        self.tree.column("#7",anchor=tk.W,width=250)
         self.tree.heading("#7",text="PASSWORD")
         # When tree record selected call function
         # self.tree.bind('<ButtonRelease-1>', self.selectItem)
 
         vertscroll = tk.Scrollbar(self.master,orient="vertical")
         vertscroll.config(command=self.tree.yview)
+        horzscroll = tk.Scrollbar(self.master,orient="horizontal")
+        horzscroll.config(command=self.tree.xview)
         self.tree.config(yscrollcommand=vertscroll.set)
-        self.tree.grid(column=2, row=1, rowspan = 7, sticky='NSWE')
-        vertscroll.grid(column=3, row=1, rowspan = 7, sticky='NSWE')
+        self.tree.config(yscrollcommand=horzscroll.set)
+        self.tree.grid(column=2, row=1, rowspan = 6, sticky='NSWE')
+        vertscroll.grid(column=3, row=1, rowspan = 6, sticky='NSWE')
+        horzscroll.grid(column=2,row=7,sticky='NWE')
 
     def selectItem(self,a):
         # Returns dictionary data from selected tree 
