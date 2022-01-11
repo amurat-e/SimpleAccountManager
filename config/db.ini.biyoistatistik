@@ -5,7 +5,7 @@ passwd = s$cret
 db = ydb
 
 [postgresql]
-host = localhost
+host = 155.223.130.136
 user = genuser
 passwd = GenUser*2021!
 db = postgres

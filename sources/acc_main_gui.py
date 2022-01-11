@@ -3,6 +3,7 @@ from tkinter import PhotoImage, ttk
 from tkinter.constants import LEFT 
 import tkinter.font as tkFont
 from tkinter.filedialog import askopenfilename, asksaveasfilename
+import dbinfo
 import getuser
 import acc_ew_gui
 import acc_cdw_gui
@@ -30,6 +31,7 @@ class MainW:
         self.helpicon = global_.vars().helpicon
         self.fontn = global_.vars().fontd.get('fCArchivo')
         self.fonts = global_.vars().fontd.get('fs13')
+        self.db = dbinfo.getinf()       
         
         self.master.rowconfigure(0, weight=0)
         self.master.rowconfigure(1, weight=0)
@@ -40,6 +42,7 @@ class MainW:
         self.master.rowconfigure(6, weight=0)
         self.master.rowconfigure(7, weight=0)
         self.master.rowconfigure(8, weight=2)
+        self.master.rowconfigure(9, weight=0)
         
         self.master.columnconfigure(0,weight=0)
         self.master.columnconfigure(1,weight=0)
@@ -47,6 +50,7 @@ class MainW:
         self.master.columnconfigure(3,weight=0)
         # 
         self.MW_labels()
+        self.label3['text']=self.db
         self.MW_tree()
         self.MW_buttons()
         self.MW_entry()
@@ -57,6 +61,8 @@ class MainW:
         andlmn16b = tkFont.Font(family='Andale Mono', weight="bold", size=16)
         self.label2 = tk.Label(self.master, text='Account List', font=andlmn16b ,pady=1)
         self.label2.grid(column=2, row=0, sticky='S')
+        self.label3 = tk.Label(self.master, pady=1)
+        self.label3.grid(column=2, row=9, sticky='SW')
         
     def MW_entry(self):
         self.entry1 = tk.Entry(self.master, width=15)
